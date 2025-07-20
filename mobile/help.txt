@@ -1,0 +1,15 @@
+setting up:
+    inside main.lua, define this module as "mobile = require("mobile.module")" on the first line.
+    inside love.update(dt), write "mobile.updateMobile(dt)".
+    inside love.draw(), write "mobile.drawMobile()" on the last line before the function end.
+    
+    this module has two parameters, mobileKey and mobileMouse:
+    .mobileKey- returns a table with each key as a parameter, either set to false or true if enabled.
+    .mobileMouse- returns a table with the x position, y position, and the button which can be none, left or right.
+
+assigning keys:
+    inside love.load(), write "mobile.assignKey(key, x, y, scale)".
+    .key- string value representing the key.
+    .x- the x position of the key on screen.
+    .y- the y position of the key on screen.
+    .scale- the scaled size of the key on screen.
