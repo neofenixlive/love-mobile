@@ -6,15 +6,15 @@ mod.mouseLastClick = 0
 mod.displayKey = {}
 mod.mobileKey = {}
 
-mod.displayMouse = {none=love.graphics.newImage("mobile/idle.png"), left=love.graphics.newImage("mobile/select.png"), right=love.graphics.newImage("mobile/select.png")}
+mod.displayMouse = {[0]=love.graphics.newImage("mobile/idle.png"), [1]=love.graphics.newImage("mobile/select.png"), [2]=love.graphics.newImage("mobile/select.png")}
 mod.mobileMouse = {x=0, y=0, button="none"}
 
 function love.touchpressed(id, x, y)
     mod.mobileMouse.x, mod.mobileMouse.y = x, y
     if mod.mouseLastClick > mod.mouseRightClickInterval then
-        mod.mobileMouse.button = "left"
+        mod.mobileMouse.button = 1
     else
-        mod.mobileMouse.button = "right"
+        mod.mobileMouse.button = 2
     end
     mod.mouseLastClick = 0
 end
@@ -22,7 +22,7 @@ function love.touchmoved(id, x, y)
     mod.mobileMouse.x, mod.mobileMouse.y = x, y
 end
 function love.touchreleased(id, x, y)
-    mod.mobileMouse.button = "none"
+    mod.mobileMouse.button = 0
 end
 
 function mod.assignKey(key, x, y, scale)
