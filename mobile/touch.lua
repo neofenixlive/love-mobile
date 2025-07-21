@@ -7,7 +7,7 @@ touch.mouseLastClick = 0
 touch.displayKey = {}
 touch.mobileKey = {}
 
-touch.displayMouse = {[0]=love.graphics.newImage("mobile/img/idle.png"), [1]=love.graphics.newImage("mobile/img/select.png"), [2]=love.graphics.newImage("mobile/img/select.png")}
+touch.displayMouse = {[0]=love.graphics.newImage("mobile/keys/idle.png"), [1]=love.graphics.newImage("mobile/keys/select.png"), [2]=love.graphics.newImage("mobile/keys/select.png")}
 touch.mobileMouse = {x=0, y=0, button=0}
 
 function love.touchpressed(id, x, y)
@@ -29,7 +29,7 @@ function love.touchreleased(id, x, y)
 end
 
 function touch.assignKey(key, x, y, scale)
-    touch.displayKey[key] = {x=x, y=y, scale=scale, image=love.graphics.newImage("mobile/img/"..key..".png")}
+    touch.displayKey[key] = {x=x, y=y, scale=scale, image=love.graphics.newImage("mobile/keys/"..key..".png")}
 end
 function touch.updateMobile(dt)
     for code, key in pairs(touch.displayKey) do
